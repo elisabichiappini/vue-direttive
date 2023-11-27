@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prova</title>
+</head>
+<body>
+    <!--da global build-->
+    <!--tutto quell che che in app è gestito da vuejs-->
+    <div id="app">
+        <h2>else if</h2>
+        <div v-if="type === 'A'">A</div>
+        <div v-else-if="type === 'B'">B</div>
+        <div v-else-if="type === 'C'">C</div>
+        <div v-else>NO A B C</div>
+
+        <h2>Change value</h2>
+        <select v-model="type">
+            <option value="A">sono A</option>
+            <option value="B">sono B</option>
+            <option value="C">sono C</option>
+            <option value="ALTRO">NON SONO NESSUNO DEI TRE</option>
+        </select>
+
+        <h2>V-show</h2>
+        <h3 v-show="type === 'A'">Appaio solo con la selezione A</h3>
+        
+        <!-- attivabile e semplice stampo su li e dati in fondo.
+        <h2>V-for</h2>
+        <ul>
+            <li v-for="friend in friends">{{ friend }}</li>
+        </ul>
+        <div v-for="amico in friendsObj"> {{ amico }}</div> ù-->
+
+        <h2>V-for</h2>
+        <ul>
+            <li v-for="friend in friends">{{ friend }}</li>
+        </ul>
+        <div v-for="(amico, index) in friendsObj" :id="`id-${index}`" v-show="index === 1"> {{ index }} - {{ amico.nome }} - Età: {{ amico.age }}</div>
+    </div>
+    <!--vue js-->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!--vue js-->
+    <!--da global build-->
+    <script src="myscript.js"></script>
+</body>
+</html>
